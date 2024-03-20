@@ -4,7 +4,7 @@ desc:  Linux 命令手册
 theme: normal
 pubDate: 2022/2/25
 author: cabbage
-hero: "[/placeholder-about.jpg](https://www.notion.so/images/page-cover/nasa_reduced_gravity_walking_simulator.jpg)"
+hero: https://www.notion.so/images/page-cover/nasa_reduced_gravity_walking_simulator.jpg
 categories: 
     - linux
 ---
