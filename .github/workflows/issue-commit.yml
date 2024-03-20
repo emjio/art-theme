@@ -15,9 +15,10 @@ jobs:
         id: check_owner
         run: echo "::set-output name=is_owner::${{ github.event.issue.user.login == github.event.repository.owner.login }}"
       - name: Setup git user information
+        if: steps.check_owner.outputs.is_owner == 'true'
         run: |
           git config --global user.email "${{secrets.EMAIL}}"
-          git config --global user.name "Your Name"
+          git config --global user.name "cabbage"
       - name: Create commit if issue creator is repo owner
         if: steps.check_owner.outputs.is_owner == 'true'
         run: |
