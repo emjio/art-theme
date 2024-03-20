@@ -20,8 +20,7 @@ jobs:
         run: |
           directory=$(echo "${{ github.event.issue.title }}" | cut -d'/' -f1)
           mkdir -p article/$directory
-          echo "${{ github.event.issue.body }}" > article/${directory}/${{ github.event.issue.title }}.md
-          git add article/${directory}/${{ github.event.issue.title }}.md
+          echo "${{ github.event.issue.body }}" > article/${directory}.md
+          git add article/${directory}.md
           git commit -m "Add new issue created by repo owner"
           git push
-
