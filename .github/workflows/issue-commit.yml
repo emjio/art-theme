@@ -25,7 +25,7 @@ jobs:
           directory=$(echo "${{ github.event.issue.title }}" | cut -d'/' -f1)
           fileName=$(echo "${{ github.event.issue.title }}" | cut -d'/' -f2)
           mkdir -p article/$directory
-          cat > article/${directory}/${fileName}.md <<EOF
+          cat > article/${directory}/${fileName}.md <<"EOF"
           ${{ github.event.issue.body }}
           EOF
           git add article/${directory}/${fileName}.md
