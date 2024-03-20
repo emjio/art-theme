@@ -1,0 +1,24 @@
+name: Issue Commit
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  issue_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check if issue creator is repo owner
+        id: check_owner
+        run: echo "::set-output name=is_owner::${{ github.event.issue.user.login == github.event.repository.owner.login }}"
+
+      - name: Create commit if issue creator is repo owner
+        if: steps.check_owner.outputs.is_owner == 'true'
+        run: |
+          echo "${{ github.event.issue.body }}" > ${{ github.event.issue.title }}.md
+          git add ${{ github.event.issue.title }}.md
+          git commit -m "Add new issue created by repo owner"
+          git push
