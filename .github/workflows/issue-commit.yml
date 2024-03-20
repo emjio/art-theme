@@ -23,8 +23,9 @@ jobs:
         if: steps.check_owner.outputs.is_owner == 'true'
         run: |
           directory=$(echo "${{ github.event.issue.title }}" | cut -d'/' -f1)
+          fileName=$(echo "${{ github.event.issue.title }}" | cut -d'/' -f2)
           mkdir -p article/$directory
-          echo "${{ github.event.issue.body }}" > article/${directory}.md
+          echo "${{ github.event.issue.body }}" > article/${directory}/${fileName}.md
           git add article/${directory}.md
           git commit -m "Add new issue created by repo owner"
           git push
