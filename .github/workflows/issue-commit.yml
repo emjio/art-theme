@@ -26,6 +26,6 @@ jobs:
           fileName=$(echo "${{ github.event.issue.title }}" | cut -d'/' -f2)
           mkdir -p article/$directory
           echo "${{ github.event.issue.body }}" > article/${directory}/${fileName}.md
-          git add article/${directory}.md
-          git commit -m "Add new issue created by repo owner"
+          git add article/${directory}/${fileName}.md
+          git commit -m "create ${fileName} by repo owner"
           git push
