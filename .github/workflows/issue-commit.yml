@@ -18,7 +18,7 @@ jobs:
       - name: Create commit if issue creator is repo owner
         if: steps.check_owner.outputs.is_owner == 'true'
         run: |
-          echo "${{ github.event.issue.body }}" > ${{ github.event.issue.title }}.md
+          echo "${{ github.event.issue.body }}" > article/${{ github.event.issue.title }}.md
           git add ${{ github.event.issue.title }}.md
           git commit -m "Add new issue created by repo owner"
           git push
