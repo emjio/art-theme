@@ -1,24 +1,58 @@
 ---
-import { published } from "@blog/utils";
-import Preview from "@blog/ui/Preview/Preview.astro";
-import Pagination from "@blog/components/Pagination.astro";
-import { pageSize, siteInfo } from "@blog/config";
-import BlogPage from "@blog/Layouts/BlogPage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
 
-const allPosts = await published();
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const totalPage = Math.max(1, Math.ceil(allPosts.length / pageSize));
+const last_posts = posts.slice(0, 3);
 ---
 
-<BlogPage hero={siteInfo.hero} heroPosition={siteInfo.heroPosition}>
-    <main>
-        {
-            allPosts
-                .slice(0, pageSize)
-                .map((p, i) => (
-                    <Preview post={p} direction={i % 2 === 0 ? "left" : ""} />
-                ))
-        }
-        <Pagination currentPage="1" totalPage={totalPage} url="pages" />
-    </main>
-</BlogPage>
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <section class="nes-container">
+      <section class="message-list">
+        <section class="message -left">
+          <i class="nes-bcrikko"></i>
+          <!-- Balloon -->
+          <div class="nes-balloon from-left">
+            <p>Hello Visitor</p>
+          </div>
+        </section>
+    
+        <section class="message -right">
+          <!-- Balloon -->
+          <div class="nes-balloon from-right">
+            <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+          </div>
+          <i class="nes-bcrikko"></i>
+        </section>
+      </section>
+    </section>
+      </section>
+    </section>
+  </div>
+
+
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>

@@ -1,73 +1,7 @@
-const { MODE } = import.meta.env;
+// Place any global data in this file.
+// You can import this data from anywhere in your site by using the `import` keyword.
 
-export const isDev = MODE === "development";
-export const isProd = MODE === "production";
-
-export const pageSize = 10;
-
-export const siteInfo = {
-    siteName: "小白菜pakchoi ",
-    siteDesc: "Some thing for nothing",
-    lang: "en-us",
-    icon: "https://fastly.jsdelivr.net/gh/emjio/picture@main/img/2024-3-7/avatar.jpg",
-    avatar: "https://fastly.jsdelivr.net/gh/emjio/picture@main/img/2024-3-7/avatar.jpg",
-    github: "https://github.com/npmrun/art-theme",
-    get hero() {
-        return (
-            "https://picsum.photos/1280/780?random=" +
-            Math.random() * 1000
-        );
-    },
-    heroPosition: "center",
-    startTime: "3/7/2024 14:52:00",
-};
-
-export const nav = [
-    {
-        title: "Search",
-        slug: "/search",
-        children: [],
-    },
-    {
-        title: "Category",
-        slug: "/categories",
-        children: [],
-    },
-    {
-        title: "About",
-        slug: "/about",
-        children: [],
-    },
-    {
-        title: "Contact",
-        slug: "/contact",
-        children: [],
-    },
-];
-
-export const settings = {
-    showTOC: false,
-    articleTheme: "github",
-    postPicture: "first",
-    categories: [
-        {
-            name: "Demo",
-            desc: "Some Demo",
-            image:
-                "https://picsum.photos/290/80?random=" +
-                Math.random() * 1000,
-            order: 1,
-        },
-        {
-            name: "Astro",
-            desc: "Astro Theme",
-            image:
-                "https://picsum.photos/290/80?random=" +
-                Math.random() * 1000,
-            order: 2,
-        },
-    ],
-    categorySettings: {
-        order: "count",
-    },
-};
+export const SITE_TITLE = 'Astrofy | Personal Portfolio Website Template';
+export const SITE_DESCRIPTION = 'Astrofy is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed.';
+export const GENERATE_SLUG_FROM_TITLE = true
+export const TRANSITION_API = true
