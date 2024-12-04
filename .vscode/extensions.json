@@ -1,7 +1,4 @@
 {
-    "recommendations": [
-        "hancel.markdown-image",
-        "d3vnu1l.template-generator-vscode",
-        "antfu.browse-lite"
-    ]
+  "recommendations": ["astro-build.astro-vscode"],
+  "unwantedRecommendations": []
 }

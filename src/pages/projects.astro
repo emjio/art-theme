@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title = "Projects" sideBarActiveItemID="projects">
+  <!-- <div>
+    <div class="text-3xl w-full font-bold mb-5">Projects</div>
+  </div>
+
+  <HorizontalCard
+    title="Demo Project 1"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Demo Project 2"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+  /> -->
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">My projects < / ></div>
+  </div>
+
+  <HorizontalCard
+    title="catch-fish"
+    img="/post_img.webp"
+    desc="This is a plugin designed to help developers slack off. It is created to improve developers' efficiency and enjoyment at work, allowing them to have a fun time slacking off in vscode."
+    url="https://github.com/MulticoloredBlack/catch-fish"
+    badge="vccode plugin"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="git-auto-commit"
+    img="/post_img.webp"
+    desc="This is a plugin that can automatically save your code. It was born out of an accident where coffee spilled on the computer."
+    url="https://github.com/emjio/git-auto-commit"
+  />
+</BaseLayout>
